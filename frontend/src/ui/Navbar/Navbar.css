@@ -11,6 +11,11 @@
     flex-direction: row;
     align-items: center;
     gap: var(--spacing-200);
+    user-select: none;
+}
+
+.navbar-logo:hover {
+    cursor: pointer;
 }
 
 .navbar .navbar-links {

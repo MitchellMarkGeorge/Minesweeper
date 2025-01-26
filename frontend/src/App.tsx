@@ -9,6 +9,7 @@ import { PublicRoute } from "./routes/PublicRoute";
 import { ROUTES } from "./routes/routes";
 import { Navbar, Text } from "./ui";
 import { useAuth } from "./hooks/useAuth";
+import Home from "./pages/Home";
 
 function App() {
   // const { isLoading } = useAuth();
@@ -41,13 +42,13 @@ function App() {
           <Route
             path={ROUTES.HOME}
             element={
-              <PrivateRoute>
-                <SignUp />
-              </PrivateRoute>
+              // <PrivateRoute>
+                <Home />
+              // </PrivateRoute>
             }
           />
           <Route
-            path={ROUTES.GAME}
+            path={`${ROUTES.GAME}/:game_id`}
             element={
               <PrivateRoute>
                 <Game />

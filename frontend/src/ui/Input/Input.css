@@ -1,4 +1,4 @@
-.input {
+.input, .select {
   background-color: var(--gray-700);
   border: 1px solid var(--gray-500);
   width: 100%;
@@ -14,9 +14,9 @@
   }
 
   &[data-disabled] {
-    color: var(--gray-700);
+    color: var(--gray-500);
     &::placeholder {
-      color: var(--gray-700);
+      color: var(--gray-500);
     }
   }
 
@@ -36,12 +36,12 @@
   }
 }
 
-.input-label {
+.input-label, .select-label {
   user-select: none;
   color: var(--gray-200);
 }
 
-.input-field {
+.input-field, .select-field {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
