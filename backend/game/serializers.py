@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from .models import Game
 from .constants import DIFFIFULTY_SETTINGS
-from board import MinesweeperBoard
+from .board import MinesweeperBoard
 
 
-class GameSerializer(serializers.Serializer):
+class CreateGameSerializer(serializers.Serializer):
 
     difficulty = serializers.ChoiceField(choices=Game.Difficulty)
 
@@ -34,3 +34,8 @@ class GameSerializer(serializers.Serializer):
         )
 
         return game
+
+
+class TileCoordinateSerializer(serializers.Serializer):
+    row = serializers.IntegerField()
+    col = serializers.IntegerField()

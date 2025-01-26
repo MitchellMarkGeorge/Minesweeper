@@ -172,5 +172,14 @@ class MinesweeperBoard:
                     )
 
         sanitized_board.append(sanitized_row)
-
         return sanitized_board
+
+    def check_has_won(self):
+        for row in self.board:
+            for tile in row:
+                # check to see if there is any tiles still hidden that are not mines
+                if tile["value"] != "MINE" and tile["is_hidden"]:
+                    return False
+        # this means all tiles that are not mines have been reavealed,
+        # meaning the player has won
+        return True
