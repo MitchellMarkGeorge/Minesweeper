@@ -1,0 +1,15 @@
+.landing-page-container {
+    height: 100%;
+    max-width: 1290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 1rem;
+    gap: var(--spacing-400);
+}
+
+.landing-page-secondary-text {
+    color: var(--gray-500);
+}
