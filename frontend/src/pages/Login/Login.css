@@ -1,0 +1,29 @@
+.login-page-container {
+  padding: 4rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login-page-title {
+  width: 100%;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-400);
+  text-align: center;
+}
+
+.login-page-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 448px;
+  gap: var(--spacing-400);
+}
+
+.login-page-link {
+  text-align: center;
+  color: var(--gray-300);
+}
+@media (max-width: 575.98px) {
+  .login-page-form {
+    width: 100%;
+  }
+}

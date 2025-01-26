@@ -8,8 +8,17 @@
   margin: 0;
   font: inherit;
 }
+
+a {
+  color: var(--default-text-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 body {
-  font-family: var(--font-family); 
+  font-family: var(--font-family);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   margin: 0;

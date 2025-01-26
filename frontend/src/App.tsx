@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Game from "./pages/Game";
 import Landing from "./pages/Landing";
@@ -8,8 +8,15 @@ import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
 import { ROUTES } from "./routes/routes";
 import { Navbar, Text } from "./ui";
+import { useAuth } from "./hooks/useAuth";
 
 function App() {
+  // const { isLoading } = useAuth();
+  // if (isLoading) return (
+  //   <div className="loading-container">
+  //     <Text size="2xl">Loading...</Text>
+  //   </div>
+  // )
   return (
     <div className="app-container">
       <Navbar />

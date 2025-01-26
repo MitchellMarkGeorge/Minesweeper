@@ -1,6 +1,6 @@
 .landing-page-container {
     height: 100%;
-    max-width: 1290px;
+    max-width: 1280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,6 +10,10 @@
     gap: var(--spacing-400);
 }
 
-.landing-page-secondary-text {
+.landing-page-title {
+    font-weight: var(--font-weight-bold);
+}
+
+.landing-page-secondary-title {
     color: var(--gray-500);
 }
