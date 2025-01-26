@@ -19,16 +19,16 @@ DIFFIFULTY_SETTINGS = {
         "mines": 40,
     },
     GameDifficulty.EXPERT: {
-        "rows": 30,
-        "cols": 16,
+        "rows": 16,
+        "cols": 30,
         "mines": 99,
     }
 }
 
 DEFAULT_SETTINGS = DIFFIFULTY_SETTINGS.get(GameDifficulty.BEGINNER)
 
-MAX_ROWS = 30
-MAX_COLS = 24
+MAX_ROWS = 24
+MAX_COLS = 30
 MAX_MINES = (MAX_ROWS - 1) * (MAX_COLS - 1)
 
 MIN_MINES = 10

@@ -57,14 +57,6 @@ class Game(models.Model):
 
     board = models.JSONField(default=list)
 
-    remaining_mines = models.SmallIntegerField(
-        default=constants.DEFAULT_SETTINGS.get("mines"),
-        validators=[
-            MinValueValidator(0),
-            MaxValueValidator(constants.MAX_MINES),
-        ],
-    )
-
     created_at = models.DateTimeField(auto_now_add=True)
 
     last_saved = models.DateTimeField(auto_now=True)
