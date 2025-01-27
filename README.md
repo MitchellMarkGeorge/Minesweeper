@@ -14,7 +14,7 @@ The classic game with a modern experience. Built with React for the frontend and
 
 ### Installing
 * Clone the repo onto your machine
-* Create a Python enviroment using `python3 -m env` in the project root
+* Create a Python enviroment using `python3 -m env` in the project root and activate it (for example on Mac, use `source env/bin/activate`)
 * `cd` into the `frontend` folder and run `npm install`
 * `cd` into the `backend` folder and run `python3 -m pip install -r requirements.txt`
 
@@ -24,4 +24,4 @@ The classic game with a modern experience. Built with React for the frontend and
 
 ### Tech Design
 
-Check out the tech design [here](./tech_design.pdf)
+Check out the tech design [here](./tech_design.pdf).
