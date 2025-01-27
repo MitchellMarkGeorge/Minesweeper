@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const checkAuthentication = async () => {
+    console.log("checking authentication")
     const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
 
     if (accessToken) {
@@ -59,7 +60,7 @@ export const AuthProvider = ({ children }: Props) => {
       setIsAuthenticated(false);
       setUser(null);
     }
-    setIsLoading(true);
+    setIsLoading(false);
   };
 
   const refreshToken = async () => {

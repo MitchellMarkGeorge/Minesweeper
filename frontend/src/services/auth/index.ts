@@ -17,6 +17,7 @@ function signUp(username: string, password: string) {
 }
 
 function signOut() {
+    console.log(localStorage.getItem(REFRESH_TOKEN_KEY))
     return api.post('auth/user/signout/', {
         refresh_token: localStorage.getItem(REFRESH_TOKEN_KEY),
     });

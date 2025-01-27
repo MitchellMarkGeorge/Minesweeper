@@ -5,11 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import { Button } from "../Button";
 import { useAuth } from "../../hooks/useAuth";
-import { useModal } from "../../hooks/useModal";
 
 export function Navbar() {
-  const { isAuthenticated } = useAuth();
-  const { openModal } = useModal();
+  const { isAuthenticated, signOut } = useAuth();
   const navigate = useNavigate();
   return (
     <div className="navbar">
@@ -28,7 +26,18 @@ export function Navbar() {
         >
           Help
         </Link>
-        <Button variant="primary" onClick={openModal}>Sign Up</Button>
+        <Button
+          variant={isAuthenticated ? "destructive" : "primary"}
+          onClick={() => {
+            if (isAuthenticated) {
+              signOut();
+            } else {
+              navigate(ROUTES.LOGIN);
+            }
+          }}
+        >
+          {isAuthenticated ? "Sign Out" : "Log In"}
+        </Button>
       </div>
     </div>
   );

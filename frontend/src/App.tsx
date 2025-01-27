@@ -7,17 +7,17 @@ import SignUp from "./pages/SignUp";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
 import { ROUTES } from "./routes/routes";
-import { Navbar, Text } from "./ui";
+import { Navbar, Text} from "./ui";
 import { useAuth } from "./hooks/useAuth";
 import Home from "./pages/Home";
 
 function App() {
-  // const { isLoading } = useAuth();
-  // if (isLoading) return (
-  //   <div className="loading-container">
-  //     <Text size="2xl">Loading...</Text>
-  //   </div>
-  // )
+  const { isLoading } = useAuth();
+  if (isLoading) return (
+    <div className="loading-container">
+      <Text size="2xl">Loading...</Text>
+    </div>
+  )
   return (
     <div className="app-container">
       <Navbar />
@@ -42,9 +42,9 @@ function App() {
           <Route
             path={ROUTES.HOME}
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Home />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route

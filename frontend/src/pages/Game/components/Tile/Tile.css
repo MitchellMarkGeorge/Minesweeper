@@ -1,0 +1,26 @@
+.tile {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--gray-500);
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+.tile-number {
+    color: var(--gray-200);
+}
+
+
+.tile.hidden {
+    background-color: var(--gray-600);
+}
+
+.tile.hidden:hover {
+    cursor: pointer;
+    background-color: var(--gray-700);
+}

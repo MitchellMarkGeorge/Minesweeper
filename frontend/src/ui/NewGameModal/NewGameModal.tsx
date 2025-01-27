@@ -15,11 +15,15 @@ import {
 } from "../../services/game";
 import { Input } from "../Input";
 import { Button } from "../Button";
+import game from "../../services/game";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 export function NewGameModal() {
   const { isOpen, closeModal } = useModal();
   const [gameDifficulty, setGameDifficulty] = useState(GameDifficulty.BEGINNER);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const { cols, mines, rows } = useMemo(
     () => getDifficultySetting(gameDifficulty),
@@ -51,8 +55,13 @@ export function NewGameModal() {
           <DialogTitle as="h1" className="modal-title">
             New Game
           </DialogTitle>
-          <form className="new-game-form" onSubmit={(e) => {
+          <form className="new-game-form" onSubmit={async (e) => {
             e.preventDefault();
+            setIsLoading(true);
+            const response = await game.newGame(gameDifficulty)
+            setIsLoading(false);
+            closeModal();
+            navigate(`${ROUTES.GAME}/${response.data.game_id}`);
           }}>
             <Select
               defaultValue={gameDifficulty}
