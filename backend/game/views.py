@@ -25,9 +25,10 @@ class CreateGameView(APIView):
     def post(self, request):
         serializer = CreateGameSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(user=request.user)
-            # game object is not needed as the front end will get it after
-            return Response(status=status.HTTP_201_CREATED)
+            game = serializer.save(user=request.user)
+            # just need to game id, frontend will fetch the rest
+            return Response({"game_id": game.id}, status=status.HTTP_201_CREATED)
+        print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -41,7 +42,6 @@ class GetGameView(APIView):
             board = MinesweeperBoard.from_game(game)
 
             sanitized_board = board.get_sanitized_board()
-            # does the game object here need to serialized???
             return Response(
                 get_game_response_data(game, sanitized_board), status=status.HTTP_200_OK
             )
@@ -92,6 +92,17 @@ class RevealGameTileView(APIView):
                         status=status.HTTP_200_OK,
                     )
 
+                # otherwise, update the game object and send it back to the user
+                sanitized_board = board.get_sanitized_board()
+                game.board = board.get_board_state()
+                game.save()
+                return Response(
+                    get_game_response_data(game, sanitized_board),
+                    status=status.HTTP_200_OK,
+                )
+
+            except Exception as ex:
+                print(str(ex))
             except Game.DoesNotExist:
                 return Response(
                     {"error": "Game not found"}, status=status.HTTP_404_NOT_FOUND
@@ -118,10 +129,13 @@ class FlagGameTileView(APIView):
                     status=status.HTTP_200_OK,
                 )
 
+            except Exception as ex:
+                print(str(ex))
             except Game.DoesNotExist:
                 return Response(
                     {"error": "Game not found"}, status=status.HTTP_404_NOT_FOUND
                 )
             except ValueError as e:
                 return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        print("is invalid")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

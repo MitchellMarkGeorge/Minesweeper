@@ -113,7 +113,6 @@ class MinesweeperBoard:
         return False
 
     def reveal_title(self, row, col):
-        # TODO: come back to this
         if self.in_bounds(row, col):
             tile = self.board[row][col]
 
@@ -140,7 +139,7 @@ class MinesweeperBoard:
 
             return True
         else:
-            raise ValueError("provided row and col are not in bounds")
+            return False
 
     def reveal_all_mines(self):
         for board_row in self.board:
@@ -149,17 +148,17 @@ class MinesweeperBoard:
                     tile["is_hidden"] = False
 
     def flag_tile(self, row, col):
+        print(self.in_bounds(row, col))
         if self.in_bounds(row, col):
             # toggle the flag on the tile (has to be hidden)
             tile = self.board[row][col]
             if tile["is_hidden"]:
                 is_flagged = tile["is_flagged"]
-            self.board[row][col]["is_flagged"] = not is_flagged
+                self.board[row][col]["is_flagged"] = not is_flagged
         else:
             raise ValueError("provided row and col are not in bounds")
 
     def get_sanitized_board(self):
-        # TODO: look back at this
         sanitized_board = []
         for row in self.board:
             sanitized_row = []
@@ -171,7 +170,7 @@ class MinesweeperBoard:
                         {"hidden": True, "flagged": tile["is_flagged"]}
                     )
 
-        sanitized_board.append(sanitized_row)
+            sanitized_board.append(sanitized_row)
         return sanitized_board
 
     def check_has_won(self):

@@ -13,9 +13,9 @@ class Game(models.Model):
         EXPERT = constants.GameDifficulty.EXPERT
 
     class GameStatus(models.TextChoices):
-        RUNNING = "running"
-        WON = "won"
-        LOST = "lost"
+        RUNNING = "RUNNING"
+        WON = "WON"
+        LOST = "LOST"
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
 

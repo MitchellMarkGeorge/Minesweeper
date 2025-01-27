@@ -2,9 +2,9 @@ from enum import StrEnum
 
 
 class GameDifficulty(StrEnum):
-    BEGINNER = "beginner"
-    INTERMEDIATE = "intermediate"
-    EXPERT = "expert"
+    BEGINNER = "BEGINNER"
+    INTERMEDIATE = "INTERMEDIATE"
+    EXPERT = "EXPERT"
 
 
 DIFFIFULTY_SETTINGS = {
