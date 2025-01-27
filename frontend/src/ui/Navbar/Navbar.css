@@ -26,3 +26,42 @@
     gap: var(--spacing-800);
     margin-left: auto;
 }
+
+.help-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: none;
+    background-color: transparent;
+    padding: 0.375rem;
+    outline: none;
+  
+}
+
+.help-icon-button:hover {
+    cursor: pointer;
+    background-color: var(--gray-800);
+}
+
+.help-button-popover {
+    position: relative;
+}
+
+.help-button-popover-panel {
+    padding: 1.25rem 1.25rem;
+    position: absolute;
+    background-color: var(--gray-800);
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.help-popover-title {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-200);
+}
+
+.help-button-popover-panel ul {
+    padding-inline: 1.25rem;
+}

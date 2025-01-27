@@ -25,6 +25,7 @@ export interface LastGameDetails {
   game_id: string;
   difficulty: GameDifficulty;
   last_played: string;
+  status: GameStatus;
 }
 
 export interface GameDifficultySettings {

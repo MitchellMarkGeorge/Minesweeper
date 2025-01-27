@@ -3,7 +3,7 @@ import { Text, Button, Difficulty } from "../../ui";
 import { useAuth } from "../../hooks/useAuth";
 import { useMemo } from "react";
 import { LAST_GAME_DETAILS_KEY } from "../../utils/constants";
-import { LastGameDetails } from "../../services/game/types";
+import { GameStatus, LastGameDetails } from "../../services/game/types";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import { useModal } from "../../hooks/useModal";
@@ -19,11 +19,6 @@ export function Home() {
     const gameDetails = localStorage.getItem(LAST_GAME_DETAILS_KEY);
     if (gameDetails) return JSON.parse(gameDetails) as LastGameDetails;
     return null;
-    // return {
-    //   difficulty: GameDifficulty.BEGINNER,
-    //   game_id: "jfalkdsjfdls",
-    //   last_played: new Date().toString(),
-    // };
   };
 
   const formatDate = (dateString: string) => {
@@ -32,6 +27,10 @@ export function Home() {
       month: "long",
       day: "numeric",
     });
+  };
+
+  const formatStatus = (staus: GameStatus) => {
+    return staus.charAt(0) + staus.slice(1).toLowerCase();
   };
 
   const lastPlayedGame = useMemo(getLastGameDetails, []);
@@ -50,6 +49,14 @@ export function Home() {
               Last Played
             </Text>
             <Text>{formatDate(lastPlayedGame.last_played)}</Text>
+          </div>
+          <div className="game-detail-item">
+            <Text className="game-detail-title" size="2xl">
+                State
+            </Text>
+            <Text>
+                {formatStatus(lastPlayedGame.status)}
+            </Text>
           </div>
           <div className="game-detail-item">
             <Text className="game-detail-title" size="2xl">

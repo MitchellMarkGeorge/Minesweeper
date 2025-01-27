@@ -33,6 +33,7 @@ export function Game() {
       const lastGameState: LastGameDetails = {
         game_id: rest.id,
         difficulty: rest.difficulty,
+        status: rest.status,
         last_played: new Date().toString(),
       };
       localStorage.setItem(LAST_GAME_DETAILS_KEY, JSON.stringify(lastGameState))
